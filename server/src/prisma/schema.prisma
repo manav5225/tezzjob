@@ -1,0 +1,34 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["postgresqlExtensions"]
+  binaryTargets   = ["native", "debian-openssl-1.1.x"]
+}
+
+datasource db {
+  provider   = "postgresql"
+  url        = env("DB_URI")
+  extensions = [pgcrypto]
+}
+
+model Employee {
+    id      Int       @id @default(autoincrement())
+    name    String
+    mobile  String
+    locality String 
+    username String
+    
+    @@unique([mobile], name: "unique_employee")
+    @@unique([username, mobile], name: "unique_mobile_username")
+    @@unique([username], name: "unique_username")
+    @@map("employee")
+}
+
+model Shopkeeper {
+  id      Int @id @default(autoincrement())
+  shopName String @map("shop_name")
+  ownerName String @map("owner_name")
+  shopLocation String @map("shop_location")
+  ownerMobile String @map("owner_mobile")
+  
+  @@map("shopkeeper")
+}
