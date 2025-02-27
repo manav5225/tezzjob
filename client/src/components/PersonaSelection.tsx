@@ -82,7 +82,10 @@ const PersonaSelection = () => {
             borderRadius: 5,
             marginX: { xs: 'auto', md: '20px' },
             marginY: { xs: '10px', md: '20px' },
+            textDecoration: 'none',
           }}
+          component={Link}
+          to={'/shopkeeper-login'}
         >
           {/* Image Section */}
           <Box

@@ -44,6 +44,7 @@ function App() {
                 alignItems: 'center',
                 paddingLeft: { xs: 'none', md: '200px' },
               }}
+              onClick={() => window.location.replace('/')}
             >
               <img src={logo} alt="logo" width={250} />
             </Grid2>
@@ -65,9 +66,6 @@ function App() {
               </Button>
               <Button component={Link} to="/about" sx={{ fontSize: '18px' }}>
                 About
-              </Button>
-              <Button component={Link} to="/contact" sx={{ fontSize: '18px' }}>
-                Contact
               </Button>
             </Box>
 
@@ -92,12 +90,6 @@ function App() {
           </ListItem>
           <ListItem component={Link} to="/about" onClick={handleDrawerToggle}>
             <ListItemText primary="About" />
-          </ListItem>
-          <ListItem component={Link} to="/jobs" onClick={handleDrawerToggle}>
-            <ListItemText primary="Jobs" />
-          </ListItem>
-          <ListItem component={Link} to="/contact" onClick={handleDrawerToggle}>
-            <ListItemText primary="Contact" />
           </ListItem>
         </List>
       </Drawer>
